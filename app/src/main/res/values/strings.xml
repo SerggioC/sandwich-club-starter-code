@@ -14,6 +14,7 @@
     <string name="detail_error_message">Sandwich data not available</string>
 
     <string-array name="sandwich_names">
+        <item>Pão com chouriço</item>
         <item>Ham and cheese sandwich</item>
         <item>Bosna</item>
         <item>Chivito</item>
@@ -27,6 +28,8 @@
     </string-array>
 
     <string-array name="sandwich_details">
+        <item>{\"placeOfOrigin\":\"Portugal\",\"description\":\"Pão com chouriço é um pão português muito saboroso cosido com rodelas de chouriço vermelho no interior! \nAltamente meu! \",\"image\":\"http://www.clube7mais.pt/wp-content/uploads/2015/07/P%C3%A3o-com-chouri%C3%A7o.png\",\"ingredients\":[\"Pão\",\"Chouriço\"]}
+        </item>
         <item>{\"name\":{\"mainName\":\"Ham and cheese
             sandwich\",\"alsoKnownAs\":[]},\"placeOfOrigin\":\"\",\"description\":\"A ham and cheese
             sandwich is a common type of sandwich. It is made by putting cheese and sliced ham
@@ -115,7 +118,7 @@
             bread\",\"Chopped or shredded vegetables\",\"Pickles\",\"Assorted condiments\"]}
         </item>
         <item>{\"name\":{\"mainName\":\"Vada Pav\",\"alsoKnownAs\":[\"Bombay Burger\",\"Vada
-            Pao\",\"Wada Pav\",\"Wada Pao\",\"Pao Vada\",\"Pav Vada\",\"Pao Wada\",\"Pav
+            Pão\",\"Wada Pav\",\"Wada Pão\",\"Pão Vada\",\"Pav Vada\",\"Pão Wada\",\"Pav
             Wada\"]},\"placeOfOrigin\":\"India\",\"description\":\"Vada Pav is a vegetarian fast
             food dish native to the Indian state of Maharashtra. The dish consists of a deep fried
             potato dumpling placed inside a bread bun (pav) sliced almost in half through the
