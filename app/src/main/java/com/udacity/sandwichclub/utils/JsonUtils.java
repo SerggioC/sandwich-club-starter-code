@@ -18,25 +18,48 @@ import java.util.List;
 
 public class JsonUtils {
 
+    private static final String NAME = "name";
+    private static final String MAIN_NAME = "mainName";
+    private static final String ALSO_KNOWN_AS = "alsoKnownAs";
+    private static final String PLACE_OF_ORIGIN = "placeOfOrigin";
+    private static final String DESCRIPTION = "description";
+    private static final String IMAGE = "image";
+    private static final String INGREDIENTS = "ingredients";
+
     public static Sandwich parseSandwichJson(String json) {
         String mainName;
-        List<String> alsoKnownAs;
+        List<String> alsoKnownAs = new ArrayList<>(0);
         String placeOfOrigin;
         String description;
         String image;
-        List<String> ingredients;
+        List<String> ingredients = new ArrayList<>(0);
 
         try {
             JSONObject data = new JSONObject(json);
-            JSONObject name = data.optJSONObject("name");
-            mainName = name == null ? null : name.getString("mainName");
-            JSONArray akaJSONArray = name.optJSONArray("alsoKnownAs");
-            alsoKnownAs = akaJSONArray == null ? null : getListFromJsonArray(akaJSONArray);
-            placeOfOrigin = data.optString("placeOfOrigin");
-            description = data.optString("description");
-            image = data.optString("image");
-            JSONArray ingredientsJSONArray = data.optJSONArray("ingredients");
-            ingredients = ingredientsJSONArray == null ? null : getListFromJsonArray(ingredientsJSONArray);
+
+            JSONObject nameObject = null;
+            if (data.has(NAME))
+                nameObject = data.optJSONObject(NAME);
+            if (nameObject == null) {
+                mainName = "";
+            } else {
+                mainName = nameObject.optString(MAIN_NAME, "");
+                JSONArray akaJSONArray = null;
+                if (nameObject.has(ALSO_KNOWN_AS))
+                    akaJSONArray = nameObject.optJSONArray(ALSO_KNOWN_AS);
+                if (akaJSONArray != null)
+                    alsoKnownAs = getListFromJsonArray(akaJSONArray);
+            }
+
+            placeOfOrigin = data.optString(PLACE_OF_ORIGIN, "");
+            description = data.optString(DESCRIPTION, "");
+            image = data.optString(IMAGE, "");
+
+            JSONArray ingredientsJSONArray = null;
+            if (data.has(INGREDIENTS))
+                ingredientsJSONArray = data.optJSONArray(INGREDIENTS);
+            if (ingredientsJSONArray != null)
+                ingredients = getListFromJsonArray(ingredientsJSONArray);
 
         } catch (JSONException e) {
             e.printStackTrace();
