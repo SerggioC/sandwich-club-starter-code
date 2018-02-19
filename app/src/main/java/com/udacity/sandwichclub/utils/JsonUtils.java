@@ -43,7 +43,7 @@ public class JsonUtils {
             if (nameObject == null) {
                 mainName = "";
             } else {
-                mainName = nameObject.optString(MAIN_NAME, "");
+                mainName = nameObject.optString(MAIN_NAME);
                 JSONArray akaJSONArray = null;
                 if (nameObject.has(ALSO_KNOWN_AS))
                     akaJSONArray = nameObject.optJSONArray(ALSO_KNOWN_AS);
@@ -51,9 +51,9 @@ public class JsonUtils {
                     alsoKnownAs = getListFromJsonArray(akaJSONArray);
             }
 
-            placeOfOrigin = data.optString(PLACE_OF_ORIGIN, "");
-            description = data.optString(DESCRIPTION, "");
-            image = data.optString(IMAGE, "");
+            placeOfOrigin = data.optString(PLACE_OF_ORIGIN);
+            description = data.optString(DESCRIPTION);
+            image = data.optString(IMAGE);
 
             JSONArray ingredientsJSONArray = null;
             if (data.has(INGREDIENTS))
